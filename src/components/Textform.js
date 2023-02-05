@@ -2,24 +2,28 @@ import React, {useState} from 'react'
 
 
 export default function Textform(props) {
-
+    
+    const [text, setText] = useState('');
     // Function to make text in uppercase
     const handleUpClick = () =>{
         
         let newtext = text.toLocaleUpperCase()
         setText(newtext)
+        props.showAlert("Converted to uppercase!", "success");
     }
 
     // Function to make text in lowercase
     const handleLowClick = () =>{
         let newtext = text.toLocaleLowerCase()
         setText(newtext)
+        props.showAlert("Converted to lowercase!", "success");
     }
 
     // Function to clear text from text box
     const handleClearClick = () =>{
         let newtext = text.replace(text, '');
         setText(newtext)
+        
     }
 
     // Function to remove extra space from text
@@ -39,6 +43,7 @@ export default function Textform(props) {
 
          // Copy the text inside the text field
         navigator.clipboard.writeText(copyText.value);
+        props.showAlert("Copied to clipboard", "success");
 
     }
 
@@ -47,7 +52,6 @@ export default function Textform(props) {
     }
 
 
-    const [text, setText] = useState('');
     return (
         <>
         <div className="container" style={{color: props.mode ==='dark'?'white':'#252729'}}>
