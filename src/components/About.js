@@ -1,80 +1,48 @@
-import React, { useState } from 'react'
 
 
-export default function About() {
-    const [myStyle, setMyStyle] = useState(
-    
-    {
-        color: 'black',
-        backgroundColor: 'white'
-    })
 
-    const [btntext, settbtnText] = useState("Enable Dark Mode")
+export default function About(props) {
 
-    let toggleStyle = () =>{
-        if(myStyle.color === 'white'){
-            setMyStyle({
-                color: 'black',
-                backgroundColor: 'white'
-            })
-            settbtnText("Enable Dark Mode")
-        }
+  let textFont = {
+    fontFamily: 'Arial, sans-serif'
+}
 
-        else{
-            setMyStyle({
-                color: 'white',
-                backgroundColor: 'black'
-            })
-            settbtnText("Enable Light Mode")
-        }
+    let textStyleAbout = {
+        color: props.mode === 'dark'?'white': '#252729',
+        backgroundColor: props.mode === 'dark'? '#252729': 'white',
+        fontFamily: 'Arial, sans-serif', fontSize: '14px' 
     }
+    
 
     return ( 
         <>
-        <div classNameName="container" style={myStyle}>
-            <h2 classNameName='my-3 mx-1'>About us</h2>
-        <div className="accordion" id="accordionExample">
-    <div className="accordion-item">
-        <h2 className="accordion-header" id="headingOne">
-        <button className="accordion-button" style={myStyle} type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-            Accordion Item #1
-        </button>
-        </h2>
-        <div id="collapseOne" className="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-        <div className="accordion-body" style={myStyle}>
-            <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classNamees that we use to style each element. These classNamees control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-        </div>
-        </div>
-    </div>
-    <div className="accordion-item">
-        <h2 className="accordion-header" id="headingTwo">
-        <button className="accordion-button collapsed" style={myStyle} type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-            Accordion Item #2
-        </button>
-        </h2>
-        <div id="collapseTwo" className="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-        <div className="accordion-body" style={myStyle}>
-            <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classNamees that we use to style each element. These classNamees control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-        </div>
-        </div>
-    </div>
-    <div className="accordion-item">
-        <h2 className="accordion-header" id="headingThree">
-        <button className="accordion-button collapsed" style={myStyle} type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-            Accordion Item #3
-        </button>
-        </h2>
-        <div id="collapseThree" className="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
-        <div className="accordion-body" style={myStyle}>
-            <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classNamees that we use to style each element. These classNamees control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-        </div>
-        </div>
-    </div>
-    </div>
+        <div className="container my-5" style={{width: '1000px', wordWrap: 'break-word', whiteSpace: 'pre-wrap'}}>
+            <div >
+            <p style={textStyleAbout}>
+  Welcome to <strong>WordGod</strong>, the ultimate online text tool for all your writing needs! With WordGod, you can easily convert your text to uppercase, lowercase, remove extra spaces, count words, and even copy to clipboard with just a few clicks. 
+</p>
 
-    
+<p style={textStyleAbout}>
+  Our user-friendly interface makes it easy to use, no matter your level of technical expertise. Whether you're a student, professional writer, or anyone in between, WordGod is here to help you get the job done. 
+</p>
+
+<p style={textStyleAbout}>
+  With the ability to convert text to uppercase and lowercase, you can ensure that your writing is properly formatted, no matter the style or tone you're trying to achieve. And with our extra space removal feature, you can keep your writing clean and concise, without any distracting gaps or line breaks. 
+</p>
+
+<p style={textStyleAbout}>
+  In addition, WordGod provides you with a convenient word counting tool, so you can keep track of your word count and make sure you're hitting your writing goals. And, when you're done, you can easily copy your text to the clipboard and paste it wherever you need.
+</p>
+
+<p style={textStyleAbout}>
+  So why wait? Try WordGod today and start creating amazing content in no time!
+</p>
+            </div>
         </div>
-    <button onClick={toggleStyle} type="button" className="btn btn-primary my-3">{btntext}</button>   
+
+        <div style={{position: 'absolute', bottom: 0, left: '50%', transform: 'translateX(-50%)',...textFont}}>
+            <p style={textStyleAbout}> made in ❤️ by Aditya</p>
+        </div>
         </>
     )
 }

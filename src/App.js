@@ -2,8 +2,13 @@ import React, { useState } from 'react';
 import './App.css';
 import Alert from './components/Alert';
 import Navbar from './components/Navbar';
-// import About from './components/About';
+import About from './components/About';
 import Textform from './components/Textform';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route
+} from "react-router-dom";
 
 function App() {
 
@@ -35,15 +40,23 @@ function App() {
 
 
   return (
-    <>
+    <Router>
       <Navbar title = "Word God" mode={mode}  toggleMode={toggleMode} />
       <Alert alert={alert}/>
       <div className="container  my-3">
-      <Textform showAlert={showAlert}  heading="Enter Text"  mode={mode}/>
+      <Switch>
+          <Route exact path="/about">
+            <About mode={mode}/>
+          </Route>
+          <Route exact path="/">
+            <Textform showAlert={showAlert}  heading="Enter Text"  mode={mode}/>
+          </Route>
+        </Switch>
+
     
       </div>
 
-    </>
+    </Router>
   );
 }
 
