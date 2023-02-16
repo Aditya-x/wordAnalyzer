@@ -1,8 +1,8 @@
 My very first react app
 access it live from here - wordgod.netlify.app
 
-ChangeLog  -
-    V1.0 -
+ChangeLog/
+    V1.0/
         - Added content in "About" section
         - Changed font
         - Made "Clear" button red and moved in right
